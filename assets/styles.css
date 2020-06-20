@@ -75,6 +75,26 @@ body {
   position: relative;
 }
 
+#countGraphContainer1 {
+  flex: 5;
+  position: relative;
+}
+
+#countGraphContainer2 {
+  flex: 5;
+  position: relative;
+}
+
+#countGraphContainer3 {
+  flex: 5;
+  position: relative;
+}
+
+#countGraphContainer4 {
+  flex: 5;
+  position: relative;
+}
+
 #header {
   align-items: center;
 }
