@@ -2,7 +2,7 @@ requests==2.22.0
 dash==1.13.3
 dash_core_components==1.10.1
 dash_html_components==1.0.3
-jupyter_dash==0.2.1.post1
+Flask==1.1.2
 numpy==1.19.0
 pandas==1.0.5
 plotly==4.8.1
