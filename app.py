@@ -82,7 +82,7 @@ for row in range (df.shape[0]) :
 df["continent"] = res
 
 # Dash app
-app = JupyterDash(__name__)
+app = Dash(__name__, suppress_callback_exceptions=True)
 
 country_options = [
     {"label": country_name, "value": country_name}
