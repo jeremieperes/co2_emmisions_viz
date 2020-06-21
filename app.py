@@ -16,9 +16,6 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 
-import flask
-
-
 
 # Load and clean data
 data_folder = 'data/'
@@ -89,9 +86,9 @@ for row in range (df.shape[0]) :
 df["continent"] = res
 
 # Dash app
-server = flask.Flask(__name__)
-server.secret_key = os.environ.get('secret_key', str(randint(0, 1000000)))
-app = dash.Dash(__name__, suppress_callback_exceptions=True, server=server)
+app = dash.Dash(__name__, suppress_callback_exceptions=True)
+server = app.server
+
 
 country_options = [
     {"label": country_name, "value": country_name}
@@ -398,4 +395,4 @@ def update_graph4(selected_countries, selected_years, c02_selected_metric, other
     return fig
 
 if __name__ == '__main__':
-    app.server.run(debug=True)
+    app.run_server(debug=True)
