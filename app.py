@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+
+import os
+from random import randint
+
 import numpy as np
 import pandas as pd
 import requests
@@ -7,10 +11,13 @@ import plotly.express as px
 import pycountry_convert as pc
 
 import plotly.express as px
-from jupyter_dash import JupyterDash
+import dash
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
+
+import flask
+
 
 
 # Load and clean data
@@ -82,7 +89,9 @@ for row in range (df.shape[0]) :
 df["continent"] = res
 
 # Dash app
-app = Dash(__name__, suppress_callback_exceptions=True)
+server = flask.Flask(__name__)
+server.secret_key = os.environ.get('secret_key', str(randint(0, 1000000)))
+app = dash.Dash(__name__, suppress_callback_exceptions=True, server=server)
 
 country_options = [
     {"label": country_name, "value": country_name}
@@ -389,4 +398,4 @@ def update_graph4(selected_countries, selected_years, c02_selected_metric, other
     return fig
 
 if __name__ == '__main__':
-    app.run_server(debug=True, port=8000, host='127.0.0.1')
+    app.server.run(debug=True)
