@@ -3,7 +3,7 @@ dash==1.13.3
 dash_core_components==1.10.1
 dash_html_components==1.0.3
 Flask==1.1.2
-numpy==1.19.0
+numpy==1.22.0
 pandas==1.0.5
 plotly==4.8.1
 pycountry_convert==0.7.2
